@@ -29,6 +29,7 @@ PostgreSQL also allows efficient queries for listing books and checking availabi
 
 ### Documentation
 For Basic API documentation i have used swagger with default implementation, if want to extend the documentation part, can customize the configuration for swagger
+- Default URL: http://localhost:8080/swagger-ui/index.html
 
 ### Postman Collection
 You can file json file named 'postman_collection.json' in root folder, you can use the json to import collection into postman and test the API's
