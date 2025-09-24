@@ -37,7 +37,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> listAll() {
+    public List<BookDto> getAllBooks() {
         return bookRepository.findAll().stream().map(book -> {
             BookDto dto = modelMapper.map(book, BookDto.class);
             boolean borrowed = loanRepository.findActiveLoanByBookId(book.getId()).isPresent();

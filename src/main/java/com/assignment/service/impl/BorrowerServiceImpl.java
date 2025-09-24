@@ -7,8 +7,11 @@ import com.assignment.exception.ResourceNotFoundException;
 import com.assignment.repository.BorrowerRepository;
 import com.assignment.service.BorrowerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class BorrowerServiceImpl implements BorrowerService {
@@ -37,5 +40,10 @@ public class BorrowerServiceImpl implements BorrowerService {
         Borrower borrower = borrowerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Borrower not found"));
         return borrower;
+    }
+
+    @Override
+    public List<BorrowerDto> getAllBorrowers() {
+        return modelMapper.map(borrowerRepository.findAll(), new TypeToken<List<BorrowerDto>>() {}.getType());
     }
 }

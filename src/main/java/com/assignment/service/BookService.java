@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface BookService {
-    public List<BookDto> listAll();
+    public List<BookDto> getAllBooks();
     public Book getById(Long id);
     public BookDto create(BookDto dto);
 }
